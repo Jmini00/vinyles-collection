@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,700;);
+
+body{
+    background: url('assets/joyce-g-ITVCF_F1_00-unsplash.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.navbar {
+    background-color: rgba(60, 53, 54, 0.5) !important;
+   border-radius: 30px;
+    margin: 20px;
+    backdrop-filter: blur(10px);
+}
+
+#collapseExample a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+        color: red;
+    }
+}
+.myCard {
+    border: solid 1px #cccccc8e;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    margin: 10px!important;
+    align-items: center!important;
+    padding: 10px!important;
+    background-color: rgba(240, 255, 255, 0.073);
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section ul li img:hover {
+    transform: scale(3.05);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.myCard:hover {
+    transform: scale(1.05);
+    background-color: rgba(0, 0, 255, 0.087)
+}
+
+.pokemonCard {
+    max-width: 80%;
+    background-color: rgba(240, 255, 255, 0.073);
+}
+
+.hide {
+    display: none;
+  }
+
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    }
+    @-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    50% {opacity: .5;}
+    100% {opacity: 1;}
+    }
+    @keyframes fadeIn {
+    0% {opacity: 0;}
+    50% {opacity: .5;}
+    100% {opacity: 1;}
+    } 

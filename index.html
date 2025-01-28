@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Vinyles liste</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="/assets/Vinyl-PNG-Clipart.png" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!--<link href="css/styles.css" rel="stylesheet"/>-->
+    <link href="css/loader.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/read.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-danger navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html"><img src="assets/Vinyl-PNG-Transparent-Image.png" alt="" width="40"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#collapseForm" role="button" aria-expanded="false" aria-controls="collapseForm">Nouveau vinyle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Liste des vinyles</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="collapse" id="collapseForm">
+        <div class="row">
+            <div class=" col-8 col-md-4 mx-auto">
+                <form id="add-vinyle-form">
+                <div class="mt-2">
+                    <label for="album" class="text-black">Album</label>
+                    <input type="text" id="album" name="album" class="form-control" placeholder="Nom de l'album">
+                </div>
+                <div class="mt-2">
+                    <label for="artist" class="text-black">Artiste</label>
+                    <input type="text" id="artist" name="artist" class="form-control" placeholder="Artiste">
+                </div>
+                <div class="mt-2">
+                    <label for="year" class="text-black">Année</label>
+                    <input type="number" id="year" name="year" class="form-control" placeholder="Année de sortie">
+                </div>
+                <div class="mt-2">
+                    <label for="picture" class="text-black">Pochette</label>
+                    <input type="text" id="picture" name="picture" class="form-control" placeholder="Pochette">
+                </div>
+                <div class="mt-2">
+                    <button class="btn btn-success mt-2 btn-block w-100">Valider</button>
+                </div>
+            </form>
+            </div>
+        </div>
+      </div>
+    <div class="collapse" id="collapseExample">
+        <div class="row">
+            <div class="col-md-4 mx-auto">
+                <ul class="d-flex flex-column align-items-center mx-auto list-unstyled"></ul>
+            </div>
+        </div>
+      </div>
+    <!-- Header-->
+    <header>
+        <div class="container px-4 px-lg-5 my-5">
+            <div>
+                <h1 class="text-center mt-2 mb-2"><img src="assets/Vinyl-PNG-Clipart.png" alt="" width="250px"></h1>
+                <h2 class="lead fw-normal text-center text-uppercase text-black mb-0">Collection Vinyles</h2>
+            </div>
+            <section class="container px-4 px-lg-5 my-5">
+                <ul class="d-flex flex-wrap align-items-center justify-content-center flex-row mx-auto list-unstyled"></ul>
+            </section>
+        </div>
+    </header>
+
+
+    <main class="container py-5">
+        <div class="loader">
+            <img src="assets/Vinyl-PNG-Transparent-Image.png" alt="Loading..." width="250px"/>
+            <p class="text-white text-center"><strong>Loading...</strong></p>
+        </div>
+        <section class="row mx-auto" id="vinyles-grid">
+            
+        </section>
+    </main>
+
+    <!-- Footer-->
+    <footer class="py-3">
+        <div class="container">
+            <h1 class="text-center mt-2 mb-2"><img src="assets/Vinyl-PNG-Clipart.png" alt="" width="250px"></h1>
+            <p class="m-0 text-center text-white">Copyright &copy; Vinyles Liste 2025</p>
+        </div>
+    </footer>
+
+    
+    <!-- Template pour les vinyles -->
+    <template id="vinyles-template">
+        <div class="col-md-3 mt-2 p-2 mx-auto myCard" id="">
+            <img src="" class="card-img-top" alt="">
+            <div class="card-body text-center text-white mt-2 mb-2">
+              <h5 class="card-title mt-2">Album ""</h5>
+              <p class="card-text-artist mt-2">Artiste : </p>
+              <p class="card-text-year mt-2">Sorti en : </p>
+              <!--<div class="d-flex justify-content-around">
+              <a href="" class="btn btn-secondary mt-2 ">Modifier</a>
+              <a href="" class="btn btn-danger mt-2 ">Supprimer</a>
+            </div>-->
+            </div>           
+         </div>
+    </template>
+</body>
+
+</html>

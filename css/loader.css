@@ -1,0 +1,35 @@
+
+.loader img {
+    /*width: 200px;
+    height: 18rem;*/
+    vertical-align: middle;
+    animation: spin 1.0s linear infinite !important;
+    text-indent: -9999px !important;
+  }
+  /*@media (min-width: 319px) {
+    .loader img {
+      width: 20rem;
+      height: 14rem;
+    }
+  }
+  @media (min-width: 768px) {
+    .loader img {
+      width: 20rem;
+      height: 18rem;
+    }
+  }*/
+
+  @keyframes spin {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+  .loader {  
+    position: absolute;
+    padding: 0;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
