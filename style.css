@@ -77,3 +77,20 @@ section ul li img:hover {
     50% {opacity: .5;}
     100% {opacity: 1;}
     } 
+
+    
+/* Masquer avec une transition fluide */
+.hidden {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+/* Montrer avec une transition fluide */
+.visible {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
