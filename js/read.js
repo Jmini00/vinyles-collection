@@ -19,7 +19,7 @@ async function readVinyles() {
             setTimeout(() => {
                 // Masquer le loader
                 document.querySelector('.loader').classList.add('hide')
-                grid.style.animation = "fadeIn 4s";
+                grid.style.animation = "fadeIn 3s";
                 ul.style.animation = "fadeIn 2s";
                 
         vinyles.forEach(vinyle => {
@@ -32,6 +32,9 @@ async function readVinyles() {
             vinyleNode.querySelector('.card-text-artist').textContent = `Artiste : ${vinyle.artist}`
             vinyleNode.querySelector('.card-text-year').textContent = `Sorti en ${vinyle.year}`
             //vinyleNode.querySelector('.vinyle').href = `vinyle.html?id=${vinyle.id}`
+
+            // Ajouter un gestionnaire d'événement pour ouvrir la modale
+            vinyleNode.querySelector('.myCard').addEventListener('click', () => openModal(vinyle));
 
             //const ul = document.querySelector('section ul')
             const li = document.createElement('li')
@@ -49,11 +52,44 @@ async function readVinyles() {
     },3000)
     clearTimeout();
 
-
     } catch (error) {
         console.error('Erreur:', error);
     }
 }
+
+// Fonction pour ouvrir la modale
+function openModal(vinyle) {
+    const modal = document.getElementById('vinyle-modal');
+    modal.querySelector('.modal-title').textContent = vinyle.album;
+    modal.querySelector('.modal-artist').textContent = `Artiste : ${vinyle.artist}`;
+    modal.querySelector('.modal-year').textContent = `Sorti en ${vinyle.year}`;
+    modal.querySelector('.modal-img').src = vinyle.picture;
+    modal.querySelector('.modal-description').textContent = vinyle.description || 'Pas de description disponible.';
+    //modal.style.display = 'block';
+    setTimeout(() => {
+                // Masquer le loader
+                modal.style.animation = "fadeIn .3s";
+                modal.style.display = 'block';
+                },300)
+    clearTimeout();
+}
+
+// Fonction pour fermer la modale
+function closeModal() {
+    const modal = document.getElementById('vinyle-modal');
+    modal.style.display = 'none';
+}
+
+// Ajouter un écouteur pour fermer la modale en cliquant sur le bouton de fermeture
+document.querySelector('.modal-close').addEventListener('click', closeModal);
+
+// Ajouter un écouteur pour fermer la modale en cliquant en dehors
+window.addEventListener('click', (event) => {
+    const modal = document.getElementById('vinyle-modal');
+    if (event.target === modal) {
+        closeModal();
+    }
+});
 
 readVinyles();
 
